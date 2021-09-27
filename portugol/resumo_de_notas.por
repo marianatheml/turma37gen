@@ -5,7 +5,7 @@ programa
 	funcao inicio()
 	{
 		real nota=0.0, totalNota=0.0, maiorNota=0.0, menorNota=10.0, media=0.0
-		cadeia aluno
+		cadeia aluno, resultado
 		
 		escreva ("Digite o nome do aluno: ")
 		leia(aluno)
@@ -23,8 +23,18 @@ programa
 		}
 
 		media = mat.arredondar(totalNota/4.0, 2)
-		escreva("\nRESUMO DO ALUNO")
-		escreva("\nALUNO: \t\t",aluno,"\nMÉDIA: \t\t",media,"\nMAIOR NOTA: \t",maiorNota,"\nMENOR NOTA: \t",menorNota)
+
+		se (media>=7){
+			resultado = "Aprovado"
+		}
+		senao{
+			resultado = "Reprovado"
+		}
+		
+		limpa()
+
+		escreva("\tRESUMO DO ALUNO")
+		escreva("\nALUNO: \t\t",aluno,"\nMÉDIA: \t\t",media,"\nMAIOR NOTA: \t",maiorNota,"\nMENOR NOTA: \t",menorNota,"\nRESULTADO: \t", resultado)
 
 	}
 }
@@ -33,7 +43,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 501; 
+ * @POSICAO-CURSOR = 495; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
