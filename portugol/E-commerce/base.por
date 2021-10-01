@@ -4,8 +4,9 @@ programa
 	{
 
 		cadeia cod[10] = {"G1-1", "G1-2", "G1-3", "G1-4", "G1-5", "G1-6", "G1-7", "G1-8", "G1-9", "G1-10"}  
-		cadeia produto[10] = {"CAMISA DO SANTA-CRUZ", "CAMISA DO NÁUTICO", "CAMISA DO SPORT", "CAMISA DO REAL MADRID", "CAMISA DO BARCELONA", "CAMISA DO BAYERN DE MUNIQUE", "CAMISA DO JUVENTUS", "CAMISA DO MILAN", "CAMISA DO BOCA JUNIORS", "CAMISA DO LIVERPOOL"}
-		real imposto, valor
+		cadeia produto[10] = {"CAMISA DO SANTA-CRUZ", "CAMISA DO NÁUTICO", "CAMISA DO SPORT CLUB", "CAMISA DO REAL MADRID", "CAMISA DO BARCELONA", "CAMISA DO BOCA JUNIORS", "CAMISA DO JUVENTUS", "CAMISA DO MANCHESTER", "CAMISA DO BOCA JUNIORS", "CAMISA DO LIVERPOOL"}
+		real valor[10] = {180.00, 150.00, 175.00, 199.00, 199.00, 180.00, 202.00, 199.00, 180.00, 202.00}
+		inteiro estoque[10] = {10,10,10,10,10,10,10,10,10,10}
 		caracter op
 				
 		loja()
@@ -17,9 +18,9 @@ programa
 			limpa()
 			loja()
 
-			escreva("\nCÓDIGO\n")
+			escreva("\nCÓDIGO\t\tPRODUTO\t\t\tVALOR\t      ESTOQUE\n")
 			para(inteiro x=0;x<10;x++){
-					escreva(cod[x],"\n")
+					escreva(cod[x],"\t",produto[x],"\t\t",valor[x],"\t\t",estoque[x],"\n")
 			}
 			
 		}senao se (op == 'N' ou op == 'n'){
@@ -41,7 +42,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 549; 
+ * @POSICAO-CURSOR = 733; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
