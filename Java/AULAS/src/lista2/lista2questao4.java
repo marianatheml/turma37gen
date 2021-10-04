@@ -1,5 +1,7 @@
 package lista2;
 import java.util.Scanner;
+import java.lang.Math;
+
 
 public class lista2questao4 {
 	public static void main(String[] args) {
@@ -7,6 +9,7 @@ public class lista2questao4 {
 		Scanner leia = new Scanner(System.in);
 		
 		int numero=0;
+		double resultado;
 		
 		while (numero<0 || numero==0) {
 			System.out.print("Digite um número positivo: ");
@@ -20,9 +23,11 @@ public class lista2questao4 {
 		}		
 		
 		if (numero%2==0) {
-			System.out.println("O número digitado é par!");
+			resultado = Math.sqrt(numero);
+			System.out.printf("O número digitado é par e a sua raiz quadrada é %.2f.",resultado);
 		} else {
-			System.out.println("O número digitado é impar!");
+			resultado = Math.pow(numero,2);
+			System.out.printf("O número digitado é impar e ele elevado ao quadrado é %.2f.",resultado);
 		}
 	}
 }
