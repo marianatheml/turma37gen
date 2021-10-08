@@ -7,7 +7,7 @@ public class Questao4_Funcionario {
 
 	
 	public String toString() {
-	    return "CÓDIGO DE REGISTRO: "+codigo.toUpperCase()+ "\nNOME: "+nome.toUpperCase();
+	    return "\n\n\n\n\n\n\n\n\n\n\n\tFICHA DE FUNCIONARIO\n-----------------------------------\nCÓDIGO DE REGISTRO: "+codigo.toUpperCase()+ "\nNOME: "+nome.toUpperCase();
 	    
 	}
 	
