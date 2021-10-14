@@ -21,13 +21,17 @@ public class ContaCorrente extends Conta{
 	}
 	
 	public void pediTalao(int contadorTalao) {
-		if (contadorTalao>=0 || contadorTalao<3) {
-			contadorTalao++;
-		}else {
-			System.out.println("Você excedeu o máximo de solicitações do talão. Contate seu gerente!");
-		}
+		saldo-=(30*contadorTalao);
 	}
 
+	@Override
+	public String toString() {
+		return "\nCONTA CORRENTE\n"
+								+ "Número da conta: " + super.getNumero() 
+								+ "\nCPF: " + super.getCpf() 
+								+ "\nValor disponível: " + saldo 
+								+ "\nA Quantidade de talões adquiridos: " + contadorTalao;
+	}
 		
 	
 	
