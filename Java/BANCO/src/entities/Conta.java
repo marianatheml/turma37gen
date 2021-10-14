@@ -4,15 +4,15 @@ public abstract class Conta {
 	
 	private int numero;
 	private String cpf;
-	private double saldo=0.0;
-	private boolean ativo;
+	protected double saldo;
 	
-	public Conta(int numero, String cpf, double saldo, boolean ativo) {
-		super();
+	public Conta() {
+		
+	}
+
+	public Conta(int numero, String cpf) {
 		this.numero = numero;
 		this.cpf = cpf;
-		this.saldo = saldo;
-		this.ativo = ativo;
 	}
 	
 	public int getNumero() {
@@ -30,30 +30,15 @@ public abstract class Conta {
 	public double getSaldo() {
 		return saldo;
 	}
-	public void setSaldo(double saldo) {
-		this.saldo = saldo;
-	}
-	public boolean isAtivo() {
-		return ativo;
-	}
-	public void setAtivo(boolean ativo) {
-		this.ativo = ativo;
-	}
-
-	public void ativarContra(){
-		ativo = true;
-		System.out.println("A conta está ativa.");
-	}
 	
 	public void debito(double valor){
-		saldo-=valor;
-		System.out.print("\nFoi realizado um debito de: "+valor+"\nSeu novo saldo é: "+saldo);
+		this.saldo-=valor;
+	
 	}
 	
 	public void credito(double valor) {
-		saldo+=valor;
-		System.out.print("\nFoi realizado um credito de: "+valor+"\nSeu novo saldo é: "+saldo);
+		this.saldo+=valor;
 	}
 	
-
+	
 }
