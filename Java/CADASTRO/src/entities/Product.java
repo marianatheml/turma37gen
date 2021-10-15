@@ -18,7 +18,7 @@ public class Product {
 		}
     }
 	   public String toString() {
-	        return "CÓDIGO\t\tPRODUTO\t\tVALOR\t\tQTDE\n"+codigo+"\t\t"+nome+"\t\t"+valor+"\t\t "+estoque;
+	        return "CÓDIGO\t\tPRODUTO\t\tVALOR\t\tQTDE\n"+codigo+"\t\t"+nome+"\t"+valor+"\t\t"+estoque;
 	    }
 	
 

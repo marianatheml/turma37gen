@@ -30,8 +30,9 @@ public class FormRegistProduct {
 		System.out.println("\nPREENCHA O CADASTRO DE PRODUTO");
 		System.out.print("Código do produto: ");
 		pd.codigo = sc.next();
+		sc.nextLine();
 		System.out.print("Nome do produto: ");
-		pd.nome = sc.next();
+		pd.nome = sc.nextLine();
 		System.out.print("Valor do produto: ");
 		pd.valor = sc.nextDouble();
 		System.out.print("Quantidade inicial em estoque: ");
