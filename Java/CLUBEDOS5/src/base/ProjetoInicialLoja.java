@@ -1,10 +1,10 @@
-package app;
+package base;
 import java.util.Scanner;
 import java.util.List;
 import java.util.ArrayList;
 import entities.Produto;
 
-public class Clubedos5 {
+public class ProjetoInicialLoja {
 	public static void main (String[] args) {
 		Scanner sc = new Scanner (System.in);
 		List <Produto> list = new ArrayList<>();
