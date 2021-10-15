@@ -1,3 +1,4 @@
+package app;
 import java.util.Scanner;
 
 public class LojaClubedos5 {
@@ -31,6 +32,7 @@ public class LojaClubedos5 {
 			for(int x=0;x<10;x++) {
 				carrinho[x] = 0;
 			}
+			
 			limpa();
 			loja();
 			System.out.println("Deseja realizar uma compra S/N: ");
