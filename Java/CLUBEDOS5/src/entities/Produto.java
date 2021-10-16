@@ -7,6 +7,7 @@ public class Produto {
 	protected int estoque=10;
 	private double valor;
 	private int carrinho;
+	private double valorTotal;
 	
 	public Produto(String codigo, String nome, double valor) {
 		super();
@@ -59,18 +60,29 @@ public class Produto {
 		this.carrinho = carrinho;
 	}
 	
-	public double valorDaCompra() {
-		return this.valor*this.carrinho;
+	public double getValorTotal() {
+		return valorTotal;
 	}
-	public void finalizarCompra(char confirmacao) {
-		if(confirmacao == 'S') {
-			estoque-=this.carrinho;
-		}
+	public void setValorTotal(double valorTotal) {
+		this.valorTotal = valorTotal;
 	}
+	
+	public void adicionarQtde(int qtdeProduto) {
+			estoque-=qtdeProduto;
+	}
+	
+	
+	public void valorDaCompra() {
+		this.valorTotal = valor*carrinho;
+	}
+	
+	public void finalizarCompra() {
+		this.estoque-=this.carrinho;			
+}
 
 	@Override
 	public String toString() {
-		return codigo + "\t" + nome + "\t" + valor + "\t" + estoque;
+		return " "+codigo + "\t" + nome + "\t\t" + valor + "\t  " + estoque;
 	}
 	
 	
