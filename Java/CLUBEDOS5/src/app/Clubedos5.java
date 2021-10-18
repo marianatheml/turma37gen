@@ -19,10 +19,9 @@ public class Clubedos5 {
 		
 		String op="", codProduto= "", opCompra = "S";
 		String nomeLoja = "CLUBE DOS 5";
-		String slogan = "Vista seu TIME! Use sua PAIX�O!";
 		
 		list.add(new Produto("G8-1","CAMISA DO SANTA-CRUZ",180.00));
-		list.add(new Produto("G8-2","CAMISA DO N�UTICO",150.00));
+		list.add(new Produto("G8-2","CAMISA DO NÁUTICO",150.00));
 		list.add(new Produto("G8-3","CAMISA DO SPORT CLUB",175.00));
 		list.add(new Produto("G8-4","CAMISA DO REAL MADRID",199.00));
 		list.add(new Produto("G8-5","CAMISA DO BARCELONA",180.00));
@@ -36,9 +35,17 @@ public class Clubedos5 {
 		loja();
 		
 		do {
-		
-			System.out.print("Seja Bem-vinde!\n[S] - Sim\n[N] - N�o\nDeseja realizar uma compra: ");
+			
+			System.out.print("Escolha umas das opções se deseja continuar.\n[S] - Sim\n[N] - Não\nRealizar uma compra: ");
 			op = sc.next().toUpperCase();
+			while (true) {
+				if (op.equals("S") || op.equals("N")) {
+					break;
+				} else {
+					System.out.print("\n\nAVISO:\t\t\t\tOPÇÃO INVÁLIDA!\nDigite [S] - sim ou [N] - não para prosseguir: ");
+					op = sc.next().toUpperCase();
+				}
+			}
 			
 			if(op.equals("N")) {
 				break;
@@ -47,14 +54,16 @@ public class Clubedos5 {
 			//_____________________________________________COMPRA
 			
 			do {
-				limpa();
+				System.out.println();
+	
 				catalogo();
-				System.out.print("\nDigite o c�digo do produto para adiciona-lo no carrinho de compras: ");
+				System.out.print("\nDigite o código do produto para adiciona-lo no carrinho de compras: ");
 				codProduto = sc.next().toUpperCase();
 				int cont=0;
 				for (Produto prod : list) {
 					if (codProduto.equals(prod.getCodigo())) {
 						limpa();
+						loja();
 						System.out.println("-------------------------------------------------------");
 						System.out.println("                  PRODUTO SELECIONADO                 ");
 						System.out.println("-------------------------------------------------------");
@@ -66,7 +75,8 @@ public class Clubedos5 {
 				
 				if (cont == 0) {
 					limpa();
-					System.out.println("Produto n�o encontrado!");
+					loja();
+					System.out.println("\nAVISO:\t\t\t\tPRODUTO NÃO ENCONTRADO!");
 					
 				} else {
 					System.out.print("\nDigite a quatidade de produtos que deseja comprar: ");
@@ -76,7 +86,8 @@ public class Clubedos5 {
 						if (prod.getCodigo().equals(codProduto)) {
 							if(qtdeProduto>prod.getEstoque() || qtdeProduto<=0) {
 								limpa();
-								System.out.println("Quantidade indispon�vel.");
+								loja();
+								System.out.println("AVISO:\t\t\t\tQUANTIDADE INDISPONÍVEL!");
 							} else {
 								prod.setCarrinho(qtdeProduto);
 							}	
@@ -91,6 +102,7 @@ public class Clubedos5 {
 					}
 					if (contCarrinho != 0) {
 						limpa();
+						
 						System.out.println("-----------------------------------------------------------------------");
 						System.out.println("                          CARRINHO DE COMPRA                          ");
 						System.out.println("-----------------------------------------------------------------------");
@@ -110,10 +122,10 @@ public class Clubedos5 {
 					opCompra = sc.next().toUpperCase();
 					
 					while (true) {
-						if (op.equals("S") || op.equals("N")) {
+						if (opCompra.equals("S") || opCompra.equals("N")) {
 							break;
 						} else {
-							System.out.print("Op��o inv�lida. Digite [S/N]: ");
+							System.out.print("\n\nAVISO:\t\t\t\tOPÇÃO INVÁLIDA!\nDigite [S] - sim ou [N] - não para prosseguir: ");
 							opCompra = sc.next().toUpperCase();
 						}
 					}
@@ -126,7 +138,7 @@ public class Clubedos5 {
 			for (Produto prod : list) {
 				if (prod.getCarrinho() != 0) {
 					prod.valorDaCompra();
-					prod.finalizarCompra();
+					prod.retirarEstoque();
 
 				}
 			}
@@ -141,21 +153,39 @@ public class Clubedos5 {
 			//_____________________________________________PAGAMENTO
 			
 			limpa();
-			System.out.println("VALOR TOTAL DA SUA COMPRA: "+totalDaCompra);
-			System.out.println("ESCOLHA UMA OP��O: ");
-			System.out.println("1- A VISTA (10% DE DESCONTO)");
-			System.out.println("2- NO CART�O DE CR�DITO (10% DE AUMENTO)");
-			System.out.println("3- 2 VEZES NO CART�O (15% DE AUMENTO)");
+			loja();
+			
+			System.out.println("-------------------------------------------------------");
+			System.out.println("                  FORMA DE PAGAMENTO                  ");
+			System.out.println("-------------------------------------------------------");
+
+			System.out.println("\nVALOR TOTAL DA SUA COMPRA: R$ "+totalDaCompra);
+			System.out.println("\n[1] - A VISTA (10% DE DESCONTO)");
+			System.out.println("[2] - NO CARTÃO DE CRÉDITO (10% DE AUMENTO)");
+			System.out.println("[3] - PARCELADO 2 VEZES NO CARTÃO (15% DE AUMENTO)");
+			
+
+			System.out.print("\nDigite a opção que deseja: ");
 			char opPagamento = sc.next().charAt(0);
 			while(true) {
 				if(opPagamento == '1' || opPagamento == '2' || opPagamento == '3') {
 					break;
 				}else {
 					limpa();
-					System.out.println("OP��O DE PAGAMENTO INV�LIDA \n DIGITE UMA DAS OP��ES: ");
-					System.out.println("1- A VISTA (10% DE **DESCONTO**  (10% DE AUMENTO)");
-					System.out.println("2- NO CART�O DE CR�DITO");
-					System.out.println("3- 2 VEZES NO CART�O (15% DE AUMENTO)");
+					loja();
+					System.out.println("AVISO:\t\t\t\t       OPÇÃO INVÁLIDA!");
+
+					System.out.println("-------------------------------------------------------");
+					System.out.println("                  FORMA DE PAGAMENTO                  ");
+					System.out.println("-------------------------------------------------------");
+
+					System.out.println("\nVALOR TOTAL DA SUA COMPRA: R$ "+totalDaCompra);
+					System.out.println("\n[1] - A VISTA (10% DE DESCONTO)");
+					System.out.println("[2] - NO CARTÃO DE CRÉDITO (10% DE AUMENTO)");
+					System.out.println("[3] - PARCELADO 2 VEZES NO CARTÃO (15% DE AUMENTO)");
+					
+
+					System.out.print("\nDigite a opção que deseja: ");
 					opPagamento = sc.next().charAt(0);
 				}
 				
@@ -188,12 +218,18 @@ public class Clubedos5 {
 			}
 			
 
-		} while(op.equals("S"));
+		} while(true);
 		
 		limpa();
-		System.out.println("Obrigado pela presen�a, n�s da "+nomeLoja+" agradecemos a prefer�ncia.");
-		System.out.println(slogan+" Volte sempre!");
+		System.out.print("╔══════════════════════════════════════════════════════╗");
+		System.out.print("\n║OBRIGADA! O "+nomeLoja+" AGRADECE A SUA PREFERÊNCIA... ║");
+		System.out.print("\n║                                                      ║");
+		System.out.print("\n║                                                      ║");
+		System.out.print("\n║• • • • •                                VOLTE SEMPRE!║");
+		System.out.print("\n╚══════════════════════════════════════════════════════╝");
 	
+	sc.close();
+		
 	} 
 	
 	public static void limpa() {
@@ -202,15 +238,16 @@ public class Clubedos5 {
 	
 	public static void loja() {
 		String nomeLoja = "CLUBE DOS 5";
-		String slogan = "� � � � �\t        VISTA SEU TIME! USE SUA PAIX�O!";
-		String fundadores = "\t\t\t      � � � � �";
-		
-		System.out.println("\n" + nomeLoja+"\t     "+fundadores);
-		System.out.print(slogan+"\n\n");
+		String slogan = "• • • • •\t        VISTA SEU TIME! USE SUA PAIXÃO!";
+		String fundadores = "\t\t\t      • • • • •";
+		System.out.print("╔══════════════════════════════════════════════════════╗");
+		System.out.print("\n║" + nomeLoja+"\t     "+fundadores+"║");
+		System.out.print("\n║"+slogan+"║\n");
+		System.out.print("╚══════════════════════════════════════════════════════╝\n");
 	}
 	
 	public static void catalogo() {
-		loja();
+
 		System.out.println("-------------------------------------------------------");
 		System.out.println("                 CATALOGO DE PRODUTOS                ");
 		System.out.println("-------------------------------------------------------");
@@ -218,7 +255,9 @@ public class Clubedos5 {
 		for (Produto prod : list) {
 			System.out.println(prod.toString());
 		}
+		
 	}
 	
+
 
 }

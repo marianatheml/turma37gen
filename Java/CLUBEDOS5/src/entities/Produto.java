@@ -4,7 +4,7 @@ public class Produto {
 
 	private String nome;
 	private String codigo;
-	protected int estoque=10;
+	private int estoque=10;
 	private double valor;
 	private int carrinho;
 	private double valorTotal;
@@ -16,10 +16,6 @@ public class Produto {
 		this.valor = valor;
 	}
 	
-	public Produto() {
-
-	}
-
 	public String getNome() {
 		return nome;
 	}
@@ -71,16 +67,14 @@ public class Produto {
 			estoque-=qtdeProduto;
 	}
 	
-	
 	public void valorDaCompra() {
 		this.valorTotal = valor*carrinho;
 	}
 	
-	public void finalizarCompra() {
+	public void retirarEstoque() {
 		this.estoque-=this.carrinho;			
 }
 
-	@Override
 	public String toString() {
 		return " "+codigo + "\t" + nome + "\t\t" + valor + "\t  " + estoque;
 	}
