@@ -1,0 +1,29 @@
+CREATE DATABASE db_blogpessoal;
+USE db_blogpessoal;
+
+CREATE TABLE tb_temas (
+id BIGINT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+descricao VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE tb_usuarios (
+id BIGINT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+nome VARCHAR(255) NOT NULL,
+usuario VARCHAR(255) NOT NULL,
+senha VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE tb_postagem (
+id BIGINT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+titulo VARCHAR(255) NOT NULL,
+texto VARCHAR(1000) NOT NULL,
+`data` TIMESTAMP NOT NULL,
+tema_id BIGINT,
+usuario_id BIGINT,
+FOREIGN KEY (tema_id) REFERENCES tb_temas(id),
+FOREIGN KEY (usuario_id) REFERENCES tb_usuarios(id)
+);
+
+
+
+
